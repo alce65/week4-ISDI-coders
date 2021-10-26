@@ -1,42 +1,39 @@
-import { useState } from 'react';
-import Gentleman from './Gentelman';
-import './gentlist.css';
-import { GENT } from './models/gent.data';
+import { useEffect, useState } from "react";
+import Gentleman from "./Gentelman";
+import "./gentlist.css";
+import { GENT } from "./models/gent.data";
 
 export default function GentList() {
-  const [gentState, setGentState] = useState({
-    list: GENT,
-    countSelected: GENT.filter((item) => item.selected).length,
-  });
+  const [gentState, setGentState] = useState([]);
+  const [countState, setCountState] = useState(
+    GENT.filter((item) => item.selected).length
+  );
+
+  useEffect(() => {
+    console.log("Cargando el componente");
+    setGentState(GENT);
+  }, []);
+
+  useEffect(() => {
+    setCountState(gentState.filter((item) => item.selected).length);
+  }, [gentState]);
 
   const selectGent = (id) => {
-    console.log('selected', id);
-    // eslint-disable-next-line no-debugger
-    // debugger;
     setGentState((prev) => {
-      const newList = prev.list.map((item) => ({
+      return prev.map((item) => ({
         ...item,
         selected: +item.id === +id ? !item.selected : item.selected,
       }));
-      const result = {
-        list: newList,
-        countSelected: newList.filter((item) => item.selected).length,
-      };
-      return result;
-    });
-    console.log(gentState);
-  };
-  const deleteGent = (id) => {
-    setGentState((prev) => {
-      const newList = prev.list.filter((item) => item.id !== id);
-      return {
-        list: newList,
-        countSelected: newList.filter((item) => item.selected).length,
-      };
     });
   };
 
-  const listItems = gentState.list.map((item) => (
+  const deleteGent = (id) => {
+    setGentState((prev) => {
+      return prev.filter((item) => item.id !== id);
+    });
+  };
+
+  const listItems = gentState.map((item) => (
     <Gentleman
       key={item.id}
       data={item}
@@ -51,7 +48,7 @@ export default function GentList() {
       </header>
       <section className="controls">
         <p className="info">
-          <span>{gentState.countSelected}</span>
+          <span>{countState}</span>
           <span> </span>
           <span>gentlemen pointing at you</span>
         </p>

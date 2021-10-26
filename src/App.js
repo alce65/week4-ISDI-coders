@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import { HomePage } from "./components/home/home.page";
 import { Layout } from "./components/core/layout";
 import AboutPage from "./components/about/about.page";
+import { GentlemenPage } from "./components/gent/Gentlemen.Page";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+        <Route path="/gent">
+          <GentlemenPage />
         </Route>
         <Route path="/about">
           <AboutPage />

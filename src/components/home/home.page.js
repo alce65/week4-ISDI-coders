@@ -1,6 +1,7 @@
-import { Footer } from "../core/footer";
-import { Header } from "../core/header";
 import { Counter } from "./counter";
+import { Greetings } from "./greetings";
+import { GreetingsRef } from "./greetings.ref";
+import { Card } from "./card";
 
 export function HomePage() {
   // Model & Controller
@@ -8,16 +9,18 @@ export function HomePage() {
 
   // View
   const template = (
-    <div className="container">
-      <Header />
-      <main className="main">
-        <section>
-          <h2>{title}</h2>
-          <Counter />
-        </section>
-      </main>
-      <Footer />
-    </div>
+    <section>
+      <h2>{title}</h2>
+      <Card title="Counter">
+        <Counter />
+      </Card>
+      <Card title="Greetings">
+        <Greetings />
+      </Card>
+      <Card title="Greetings Ref">
+        <GreetingsRef />
+      </Card>
+    </section>
   );
 
   return template;

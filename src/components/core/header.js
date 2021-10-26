@@ -2,8 +2,8 @@ import { Menu } from "./menu";
 
 export function Header() {
   const menuItems = [
-    { path: "index.html", label: "Tareas" },
-    { path: "about.html", label: "Nosotros" },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "Nosotros" },
   ];
   const pathLogo = "./assets/isdi_coders.png";
   const altLogo = "Logo de ISDI Coders";

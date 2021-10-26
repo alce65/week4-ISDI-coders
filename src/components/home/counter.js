@@ -26,34 +26,31 @@ export function Counter() {
 
   const template = (
     <>
-      <h3>Counter</h3>
-      <div className="counter">
-        <div className="counter__h3">{state.counter}</div>
-        <div className="counter-buttons">
-          <button
-            type="button"
-            className="counter-buttons__button"
-            onClick={(evt) => handleChange(+1)}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            className="counter-buttons__button"
-            onClick={(evt) => handleChange(-1)}
-          >
-            -
-          </button>
-          <button
-            type="button"
-            className="counter-buttons__button"
-            onClick={(evt) => handleChange(0)}
-          >
-            Reset
-          </button>
-        </div>
-        <div className="counter__h3">Clicks: {state.clicks}</div>
+      <div className="counter__h3">{state.counter}</div>
+      <div className="counter-buttons">
+        <button
+          type="button"
+          className="counter-buttons__button"
+          onClick={(evt) => handleChange(+1)}
+        >
+          +
+        </button>
+        <button
+          type="button"
+          className="counter-buttons__button"
+          onClick={(evt) => handleChange(-1)}
+        >
+          -
+        </button>
+        <button
+          type="button"
+          className="counter-buttons__button"
+          onClick={(evt) => handleChange(0)}
+        >
+          Reset
+        </button>
       </div>
+      <div className="counter__h3">Clicks: {state.clicks}</div>
     </>
   );
   return template;

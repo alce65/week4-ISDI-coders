@@ -3,6 +3,7 @@ import { Menu } from "./menu";
 export function Header() {
   const menuItems = [
     { path: "/", label: "Home" },
+    { path: "/tasks", label: "Tareas" },
     { path: "/gent", label: "Gentelman" },
     { path: "/about", label: "Nosotros" },
   ];

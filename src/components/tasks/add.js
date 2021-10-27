@@ -10,7 +10,7 @@ export function Add({ addTask }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     addTask(newTaskState);
-    console.log(newTaskState);
+    setNewTaskState(new TaskModel());
   };
 
   const template = (

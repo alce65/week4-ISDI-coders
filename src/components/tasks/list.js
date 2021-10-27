@@ -1,17 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TASKS } from "../../models/task.data";
 import { Card } from "../core/card";
 import { Add } from "./add";
 import { Task } from "./task";
+import * as store from "../../services/store";
 
 export function List() {
-  const [tasks, setTasks] = useState(TASKS);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    store.getTasks().then((response) => {
+      setTasks(response);
+    });
+  }, []);
 
   const addTask = (task) => {
-    //TODO Add task to array
+    // Mock de generación de ids
+    task.id = +tasks[tasks.length - 1].id + 1;
+    const newTareas = [...tasks, task];
+    store.setTasks(newTareas).then(() => {
+      setTasks(newTareas);
+    });
   };
-  const toggleCompleteTask = () => {};
-  const deleteTask = () => {};
+
+  const toggleCompleteTask = ({ id }) => {
+    const newTareas = tasks.map((item) => ({
+      ...item,
+      isCompleted: +item.id === +id ? !item.isCompleted : item.isCompleted,
+    }));
+    store.setTasks(newTareas).then(() => {
+      setTasks(newTareas);
+    });
+  };
+
+  const deleteTask = ({ id }) => {
+    const newTareas = tasks.filter((item) => item.id !== id);
+    store.setTasks(newTareas).then(() => {
+      setTasks(newTareas);
+    });
+  };
 
   const htmlTasks = tasks.map((item) => (
     <Task

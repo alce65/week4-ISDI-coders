@@ -6,7 +6,7 @@ export function Task({ item, toggleCompleteTask, deleteTask }) {
         checked={item.isCompleted}
         id={`task-is-completed-${item.id}`}
         onChange={() => {
-          toggleCompleteTask(item.id);
+          toggleCompleteTask(item);
         }}
       />
       {item.title} | {item.responsible}
@@ -15,7 +15,7 @@ export function Task({ item, toggleCompleteTask, deleteTask }) {
         tabIndex="-1"
         className="task__delete-button"
         onClick={() => {
-          deleteTask(item.id);
+          deleteTask(item);
         }}
       >
         🗑

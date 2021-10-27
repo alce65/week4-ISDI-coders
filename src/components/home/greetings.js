@@ -1,4 +1,4 @@
-import { useState, use } from "react";
+import { useState } from "react";
 
 export function Greetings() {
   const [state, setState] = useState("");

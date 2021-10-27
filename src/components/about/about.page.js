@@ -1,3 +1,5 @@
+import "./v-card";
+
 export default function AboutPage() {
   return (
     <section>

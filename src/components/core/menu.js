@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Menu({ menuItems }) {
   const listItems = menuItems.map((item) => (
-    <li>
+    <li key={item.label}>
       <Link className="header-menu__item" to={item.path}>
         {item.label}
       </Link>

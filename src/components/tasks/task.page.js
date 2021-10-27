@@ -1,3 +1,6 @@
+import { List } from "./list";
+
 export function TaskPage() {
-  return <div>Tareas</div>;
+  const template = <List />;
+  return template;
 }

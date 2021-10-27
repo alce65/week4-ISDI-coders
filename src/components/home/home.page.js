@@ -1,7 +1,7 @@
 import { Counter } from "./counter";
 import { Greetings } from "./greetings";
 import { GreetingsRef } from "./greetings.ref";
-import { Card } from "./card";
+import { Card } from "../core/card";
 
 export function HomePage() {
   // Model & Controller

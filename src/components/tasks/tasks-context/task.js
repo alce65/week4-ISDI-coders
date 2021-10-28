@@ -1,4 +1,9 @@
-export function Task({ item, toggleCompleteTask, deleteTask }) {
+import { useContext } from "react";
+import { TasksContext } from "../../../contexts/TasksContextProvider";
+
+export function Task({ item }) {
+  const { toggleCompleteTask, deleteTask } = useContext(TasksContext);
+
   const template = (
     <li>
       <input

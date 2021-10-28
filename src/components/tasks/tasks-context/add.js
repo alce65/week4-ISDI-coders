@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import TaskModel from "../../../models/task.model";
-export function Add({ addTask }) {
+import { TasksContext } from "../../../contexts/TasksContextProvider";
+export function Add() {
+  const { addTask } = useContext(TasksContext);
   const [newTaskState, setNewTaskState] = useState(new TaskModel());
 
   const handleChange = (evt, control) => {

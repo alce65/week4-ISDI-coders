@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { TASKS } from "../../models/task.data";
-import { Card } from "../core/card";
+import { Card } from "../../core/card";
 import { Add } from "./add";
 import { Task } from "./task";
-import * as store from "../../services/store";
+import * as store from "../../../services/store";
 
 export function List() {
   const [tasks, setTasks] = useState([]);
@@ -50,7 +49,7 @@ export function List() {
   ));
   const template = (
     <div>
-      <h2>Lista de tareas</h2>
+      <h2>Lista de tareas by Context</h2>
       <div id="formAddTask">
         <Card title="Añadir tarea">
           <Add addTask={addTask} />

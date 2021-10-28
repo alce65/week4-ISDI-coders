@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TaskModel from "../../models/task.model";
+import TaskModel from "../../../models/task.model";
 export function Add({ addTask }) {
   const [newTaskState, setNewTaskState] = useState(new TaskModel());
 

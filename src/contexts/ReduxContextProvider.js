@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect, useRef } from "react";
 import { TASKS } from "../models/task.data";
-import { tasksReducer } from "../components/tasks/tasks-redux-native/reducers/taskreducer";
-import * as actions from "../components/tasks/tasks-redux-native/reducers/actioncreators";
+import { tasksReducer } from "../components/tasks/reducers/taskreducer";
+import * as actions from "../components/tasks/reducers/actioncreators";
 import * as store from "../services/store";
 
 export const ReduxContext = createContext({

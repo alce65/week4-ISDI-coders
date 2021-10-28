@@ -5,12 +5,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { TasksContextProvider } from "./contexts/TasksContextProvider";
+import { ReduxContextProvider } from "./contexts/ReduxContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <TasksContextProvider>
-        <App />
+        <ReduxContextProvider>
+          <App />
+        </ReduxContextProvider>
       </TasksContextProvider>
     </Router>
   </React.StrictMode>,

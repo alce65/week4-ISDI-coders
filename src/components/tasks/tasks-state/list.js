@@ -50,7 +50,10 @@ export function List() {
   const template = (
     <div>
       <h2>
-        Lista de tareas {tasks.filter((item) => !item.isCompleted).length}
+        Lista de tareas
+        <span className="badget">
+          {tasks.filter((item) => !item.isCompleted).length}
+        </span>
       </h2>
       <div id="formAddTask">
         <Card title="Añadir tarea">

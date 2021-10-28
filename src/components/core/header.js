@@ -3,17 +3,17 @@ import { TasksContext } from "../../contexts/TasksContextProvider";
 import { Menu } from "./menu";
 
 export function Header() {
-  const { tasks } = useContext(TasksContext);
+  const { pendingTasks } = useContext(TasksContext);
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/tasks", label: "Tareas" },
     { path: "/gent", label: "Gentelman" },
     { path: "/about", label: "Nosotros" },
   ];
-  const pathLogo = "./assets/isdi_coders.png";
+  const pathLogo = "/assets/isdi_coders.png";
   const altLogo = "Logo de ISDI Coders";
 
-  const pendingTasks = tasks.filter((item) => !item.isCompleted).length;
+  // const pendingTasks = tasks.filter((item) => !item.isCompleted).length;
   /* useEffect(() => {
     pendingTasks = tasks.filter((item) => !item.isCompleted).length;
   }, [tasks]); */
@@ -24,7 +24,7 @@ export function Header() {
         <img className="header__logo-image" src={pathLogo} alt={altLogo} />
       </div>
       <div className="header__main">
-        <h1 className="header__title">Tareas Dashboard {pendingTasks}</h1>
+        <h1 className="header__title">Tareas Dashboard {pendingTasks()}</h1>
         <Menu menuItems={menuItems} />
       </div>
     </header>

@@ -1,10 +1,11 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 import { TASKS } from "../models/task.data";
 import * as store from "../services/store";
 
 export const TasksContext = createContext({
   tasks: [],
-  pendingTasks: 0,
+  pending: undefined,
+  pendingTasks: () => {},
   addTask: () => {},
   toggleCompleteTask: () => {},
   deleteTask: () => {},
@@ -13,15 +14,20 @@ export const TasksContext = createContext({
 // Componente "estandar" de react
 export function TasksContextProvider({ children }) {
   const [tasks, setTasks] = useState(TASKS);
-  let pendingTasks = 0;
+  // const pendingTasks = useRef(0);
   useEffect(() => {
     store.getTasks().then((response) => {
       setTasks(response);
     });
   }, []);
 
+  const pendingTasks = () => tasks.filter((item) => !item.isCompleted).length;
+
+  const pending = useRef(tasks.filter((item) => !item.isCompleted).length);
+
   useEffect(() => {
-    pendingTasks = tasks.filter((item) => !item.isCompleted).length;
+    pending.current = tasks.filter((item) => !item.isCompleted).length;
+    console.log("Calculando pending:", pending);
   }, [tasks]);
 
   const addTask = (task) => {
@@ -50,7 +56,14 @@ export function TasksContextProvider({ children }) {
     });
   };
 
-  const context = { tasks, addTask, toggleCompleteTask, deleteTask };
+  const context = {
+    tasks,
+    pendingTasks,
+    pending: pending.current,
+    addTask,
+    toggleCompleteTask,
+    deleteTask,
+  };
   return (
     <TasksContext.Provider value={context}>{children}</TasksContext.Provider>
   );

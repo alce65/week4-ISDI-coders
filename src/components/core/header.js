@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { TasksContext } from "../../contexts/TasksContextProvider";
+import { ReduxContext } from "../../contexts/ReduxContextProvider";
+import { FinalReduxContext } from "../../contexts/FinalReduxContextProvider";
 import { Menu } from "./menu";
 
 export function Header() {
   const { pendingTasks } = useContext(TasksContext);
+  const pendingTasks2 = useContext(ReduxContext).pendingTasks;
+  const pendingTasks3 = useContext(FinalReduxContext).pendingTasks;
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/tasks", label: "Tareas" },
@@ -24,7 +28,10 @@ export function Header() {
         <img className="header__logo-image" src={pathLogo} alt={altLogo} />
       </div>
       <div className="header__main">
-        <h1 className="header__title">Tareas Dashboard {pendingTasks()}</h1>
+        <h1 className="header__title">Tareas Dashboard</h1>
+        <span>
+          {pendingTasks()} - {pendingTasks2()} - {pendingTasks3()}
+        </span>
         <Menu menuItems={menuItems} />
       </div>
     </header>

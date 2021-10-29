@@ -2,6 +2,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import { List } from "./tasks-state/list";
 import { List as List2 } from "./tasks-context/list";
 import { List as List3 } from "./tasks-redux-native/list";
+import { List as List4 } from "./tasks-redux-native-final/list";
 
 import "./tareas.css";
 
@@ -14,6 +15,8 @@ export function TaskPage() {
         <Link to="/tasks/context">Tareas by Context</Link>
         <span> | </span>
         <Link to="/tasks/redux">Tareas by Redux</Link>
+        <span> | </span>
+        <Link to="/tasks/redux-api">Tareas by Redux (from API)</Link>
       </nav>
       <Switch>
         <Route path="/tasks/state">
@@ -24,6 +27,9 @@ export function TaskPage() {
         </Route>
         <Route path="/tasks/redux">
           <List3 />
+        </Route>
+        <Route path="/tasks/redux-api">
+          <List4 />
         </Route>
       </Switch>
     </>

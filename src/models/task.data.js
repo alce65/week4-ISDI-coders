@@ -6,3 +6,5 @@ export const TASKS = [
   new TaskModel(3, "Tarea 3", "Elena", true),
   new TaskModel(4, "Tarea 4", "Susana"),
 ];
+
+console.log(JSON.stringify(TASKS));

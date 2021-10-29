@@ -4,17 +4,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { FinalReduxContextProvider } from "./contexts/FinalReduxContextProvider";
 import { TasksContextProvider } from "./contexts/TasksContextProvider";
 import { ReduxContextProvider } from "./contexts/ReduxContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <TasksContextProvider>
-        <ReduxContextProvider>
-          <App />
-        </ReduxContextProvider>
-      </TasksContextProvider>
+      <FinalReduxContextProvider>
+        <TasksContextProvider>
+          <ReduxContextProvider>
+            <App />
+          </ReduxContextProvider>
+        </TasksContextProvider>
+      </FinalReduxContextProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

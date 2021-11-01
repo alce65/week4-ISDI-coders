@@ -1,5 +1,6 @@
-import { useState } from "react";
-import TaskModel from "../../../models/task.model";
+import { useState } from 'react';
+import TaskModel from '../../../models/task.model';
+
 export function Add({ addTask }) {
   const [newTaskState, setNewTaskState] = useState(new TaskModel());
 
@@ -23,7 +24,7 @@ export function Add({ addTask }) {
           name="task-title"
           id="task-title"
           value={newTaskState.title}
-          onChange={(ev) => handleChange(ev, "title")}
+          onChange={(ev) => handleChange(ev, 'title')}
         />
       </div>
       <div className="form-group">
@@ -34,7 +35,7 @@ export function Add({ addTask }) {
           name="task-responsible"
           id="task-responsible"
           value={newTaskState.responsible}
-          onChange={(ev) => handleChange(ev, "responsible")}
+          onChange={(ev) => handleChange(ev, 'responsible')}
         />
       </div>
       <button type="submit">Añadir</button>

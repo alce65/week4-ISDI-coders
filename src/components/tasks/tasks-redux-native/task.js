@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ReduxContext } from "../../../contexts/ReduxContextProvider";
+import { useContext } from 'react';
+import { ReduxContext } from '../../../contexts/ReduxContextProvider';
 
 export function Task({ item }) {
   const { toggleCompleteTask, deleteTask } = useContext(ReduxContext);

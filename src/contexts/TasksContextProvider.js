@@ -1,6 +1,8 @@
-import { createContext, useState, useEffect, useRef } from "react";
-import { TASKS } from "../models/task.data";
-import * as store from "../services/store";
+/* eslint-disable no-param-reassign */
+import { createContext, useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { TASKS } from '../models/task.data';
+import * as store from '../services/store';
 
 export const TasksContext = createContext({
   tasks: [],
@@ -27,7 +29,7 @@ export function TasksContextProvider({ children }) {
 
   useEffect(() => {
     pending.current = tasks.filter((item) => !item.isCompleted).length;
-    console.log("Calculando pending:", pending);
+    console.log('Calculando pending:', pending);
   }, [tasks]);
 
   const addTask = (task) => {
@@ -68,3 +70,10 @@ export function TasksContextProvider({ children }) {
     <TasksContext.Provider value={context}>{children}</TasksContext.Provider>
   );
 }
+
+TasksContextProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};

@@ -1,11 +1,11 @@
-import { Counter } from "./counter";
-import { Greetings } from "./greetings";
-import { GreetingsRef } from "./greetings.ref";
-import { Card } from "../core/card";
+import { Counter } from './counter';
+import { Greetings } from './greetings';
+import { GreetingsRef } from './greetings.ref';
+import { Card } from '../core/card';
 
 export function HomePage() {
   // Model & Controller
-  const title = "Component Samples";
+  const title = 'Component Samples';
 
   // View
   const template = (

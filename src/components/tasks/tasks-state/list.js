@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import { Card } from "../../core/card";
-import { Add } from "./add";
-import { Task } from "./task";
-import * as store from "../../../services/store";
+/* eslint-disable no-param-reassign */
+import { useState, useEffect } from 'react';
+import { Card } from '../../core/card';
+import { Add } from './add';
+import { Task } from './task';
+import * as store from '../../../services/store';
 
 export function List() {
   const [tasks, setTasks] = useState([]);

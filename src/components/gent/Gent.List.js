@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import Gentleman from "./Gentelman";
-import "./gentlist.css";
-import { GENT } from "./models/gent.data";
+import { useEffect, useState } from 'react';
+import Gentleman from './Gentelman';
+import './gentlist.css';
+import { GENT } from './models/gent.data';
 
 export default function GentList() {
   const [gentState, setGentState] = useState([]);
   const [countState, setCountState] = useState(
-    GENT.filter((item) => item.selected).length
+    GENT.filter((item) => item.selected).length,
   );
 
   useEffect(() => {
-    console.log("Cargando el componente");
+    console.log('Cargando el componente');
     setGentState(GENT);
   }, []);
 
@@ -19,18 +19,14 @@ export default function GentList() {
   }, [gentState]);
 
   const selectGent = (id) => {
-    setGentState((prev) => {
-      return prev.map((item) => ({
-        ...item,
-        selected: +item.id === +id ? !item.selected : item.selected,
-      }));
-    });
+    setGentState((prev) => prev.map((item) => ({
+      ...item,
+      selected: +item.id === +id ? !item.selected : item.selected,
+    })));
   };
 
   const deleteGent = (id) => {
-    setGentState((prev) => {
-      return prev.filter((item) => item.id !== id);
-    });
+    setGentState((prev) => prev.filter((item) => item.id !== id));
   };
 
   const listItems = gentState.map((item) => (

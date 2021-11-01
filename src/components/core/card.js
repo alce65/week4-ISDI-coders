@@ -1,4 +1,5 @@
-import "./card.css";
+import './card.css';
+
 export function Card({ title, children }) {
   const template = (
     <div>

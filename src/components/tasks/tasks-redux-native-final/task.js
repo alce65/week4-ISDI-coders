@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { FinalReduxContext } from "../../../contexts/FinalReduxContextProvider";
+import { useFinalTasks } from '../../../hooks/finalTasks';
 
 export function Task({ item }) {
-  const { toggleCompleteTask, deleteTask } = useContext(FinalReduxContext);
+  const { toggleCompleteTask, deleteTask } = useFinalTasks();
 
   const template = (
     <li>

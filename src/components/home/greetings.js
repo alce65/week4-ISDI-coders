@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export function Greetings() {
-  const [state, setState] = useState("");
+  const [state, setState] = useState('');
 
   const handleDelete = () => {
-    setState("");
+    setState('');
   };
 
   const handleChange = (ev) => {
@@ -22,7 +22,7 @@ export function Greetings() {
       <button type="button" onClick={handleDelete}>
         Borrar
       </button>
-      <p>Hola {state ? state : "amigo"}</p>
+      <p>Hola {state || 'amigo'}</p>
     </div>
   );
   return template;

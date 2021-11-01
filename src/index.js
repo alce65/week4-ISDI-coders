@@ -1,26 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { FinalReduxContextProvider } from "./contexts/FinalReduxContextProvider";
-import { TasksContextProvider } from "./contexts/TasksContextProvider";
-import { ReduxContextProvider } from "./contexts/ReduxContextProvider";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { ContextProvider } from './contexts/ContextProvider';
+import { TasksContextProvider } from './contexts/TasksContextProvider';
+import { ReduxContextProvider } from './contexts/ReduxContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <FinalReduxContextProvider>
+      <ContextProvider>
         <TasksContextProvider>
           <ReduxContextProvider>
             <App />
           </ReduxContextProvider>
         </TasksContextProvider>
-      </FinalReduxContextProvider>
+      </ContextProvider>
     </Router>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,11 +1,11 @@
-import { TASKS } from "../models/task.data.js";
+import { TASKS } from '../models/task.data';
 
-export const storeName = "Tareas";
+export const storeName = 'Tareas';
 export async function getTasks() {
   /* return localStorage.getItem(storeName)
       ? JSON.parse(localStorage.getItem(storeName))
       : TASKS; */
-  let data = localStorage.getItem(storeName);
+  const data = localStorage.getItem(storeName);
   let result = [];
   if (data) {
     result = JSON.parse(data);

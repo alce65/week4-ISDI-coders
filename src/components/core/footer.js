@@ -1,5 +1,5 @@
 export function Footer() {
-  const title = "ISDI Coders - Madrid Octubre 2021";
+  const title = 'ISDI Coders - Madrid Octubre 2021';
   const today = new Date();
   const template = (
     <footer className="footer">

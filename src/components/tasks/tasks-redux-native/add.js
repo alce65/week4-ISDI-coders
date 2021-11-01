@@ -1,6 +1,7 @@
-import { useState, useContext } from "react";
-import TaskModel from "../../../models/task.model";
-import { ReduxContext } from "../../../contexts/ReduxContextProvider";
+import { useState, useContext } from 'react';
+import TaskModel from '../../../models/task.model';
+import { ReduxContext } from '../../../contexts/ReduxContextProvider';
+
 export function Add() {
   const { addTask } = useContext(ReduxContext);
   const [newTaskState, setNewTaskState] = useState(new TaskModel());
@@ -25,7 +26,7 @@ export function Add() {
           name="task-title"
           id="task-title"
           value={newTaskState.title}
-          onChange={(ev) => handleChange(ev, "title")}
+          onChange={(ev) => handleChange(ev, 'title')}
         />
       </div>
       <div className="form-group">
@@ -36,7 +37,7 @@ export function Add() {
           name="task-responsible"
           id="task-responsible"
           value={newTaskState.responsible}
-          onChange={(ev) => handleChange(ev, "responsible")}
+          onChange={(ev) => handleChange(ev, 'responsible')}
         />
       </div>
       <button type="submit">Añadir</button>

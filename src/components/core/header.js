@@ -1,21 +1,23 @@
-import { useContext } from "react";
-import { TasksContext } from "../../contexts/TasksContextProvider";
-import { ReduxContext } from "../../contexts/ReduxContextProvider";
-import { FinalReduxContext } from "../../contexts/FinalReduxContextProvider";
-import { Menu } from "./menu";
+import { useContext } from 'react';
+import { TasksContext } from '../../contexts/TasksContextProvider';
+import { ReduxContext } from '../../contexts/ReduxContextProvider';
+
+import { Menu } from './menu';
+import { useFinalTasks } from '../../hooks/finalTasks';
 
 export function Header() {
   const { pendingTasks } = useContext(TasksContext);
   const pendingTasks2 = useContext(ReduxContext).pendingTasks;
-  const pendingTasks3 = useContext(FinalReduxContext).pendingTasks;
+  // const pendingTasks3 = useContext(FinalReduxContext).pendingTasks;
+  const pendingTasks3 = useFinalTasks().pendingTasks;
   const menuItems = [
-    { path: "/", label: "Home" },
-    { path: "/tasks", label: "Tareas" },
-    { path: "/gent", label: "Gentelman" },
-    { path: "/about", label: "Nosotros" },
+    { path: '/', label: 'Home' },
+    { path: '/tasks', label: 'Tareas' },
+    { path: '/gent', label: 'Gentelman' },
+    { path: '/about', label: 'Nosotros' },
   ];
-  const pathLogo = "/assets/isdi_coders.png";
-  const altLogo = "Logo de ISDI Coders";
+  const pathLogo = '/assets/isdi_coders.png';
+  const altLogo = 'Logo de ISDI Coders';
 
   // const pendingTasks = tasks.filter((item) => !item.isCompleted).length;
   /* useEffect(() => {

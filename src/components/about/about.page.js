@@ -1,4 +1,4 @@
-import "./v-card";
+import './v-card';
 
 export default function AboutPage() {
   return (

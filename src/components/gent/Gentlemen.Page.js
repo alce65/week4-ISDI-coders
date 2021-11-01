@@ -1,4 +1,4 @@
-import GentList from "./Gent.List";
+import GentList from './Gent.List';
 
 export function GentlemenPage() {
   const template = (

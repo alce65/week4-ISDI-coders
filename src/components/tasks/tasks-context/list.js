@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { TasksContext } from "../../../contexts/TasksContextProvider";
-import { Card } from "../../core/card";
-import { Add } from "./add";
-import { Task } from "./task";
+import { useContext } from 'react';
+import { TasksContext } from '../../../contexts/TasksContextProvider';
+import { Card } from '../../core/card';
+import { Add } from './add';
+import { Task } from './task';
 
 export function List() {
   const { tasks } = useContext(TasksContext);

@@ -1,7 +1,4 @@
-import { createContext, useReducer, useEffect, useRef } from "react";
-import { tasksReducer } from "../components/tasks/reducers/taskreducer";
-import * as actions from "../components/tasks/reducers/actioncreators";
-import * as store from "../services/store.http";
+/* import { createContext, useEffect, useRef } from "react";
 
 export const FinalReduxContext = createContext({
   tasks: [],
@@ -14,15 +11,7 @@ export const FinalReduxContext = createContext({
 
 // Componente "estandar" de react
 export function FinalReduxContextProvider({ children }) {
-  const [tasks, dispatch] = useReducer(tasksReducer, []);
   // const pendingTasks = useRef(0);
-  useEffect(() => {
-    store.getTasks().then((response) => {
-      dispatch(actions.loadTasks(response));
-    });
-  }, []);
-
-  const pendingTasks = () => tasks.filter((item) => !item.isCompleted).length;
 
   const pending = useRef(tasks.filter((item) => !item.isCompleted).length);
 
@@ -30,26 +19,6 @@ export function FinalReduxContextProvider({ children }) {
     pending.current = tasks.filter((item) => !item.isCompleted).length;
     console.log("Calculando pending:", pending);
   }, [tasks]);
-
-  const addTask = (task) => {
-    store.setTask(task).then((resp) => {
-      dispatch(actions.addTask(resp));
-    });
-  };
-
-  const toggleCompleteTask = (task) => {
-    store.updateTask(task).then((resp) => {
-      dispatch(actions.toggleTask(resp.id));
-    });
-  };
-
-  const deleteTask = (task) => {
-    store.removeTask(task.id).then((resp) => {
-      if (resp.ok) {
-        dispatch(actions.deleteTasks(task.id));
-      }
-    });
-  };
 
   const context = {
     tasks,
@@ -65,3 +34,4 @@ export function FinalReduxContextProvider({ children }) {
     </FinalReduxContext.Provider>
   );
 }
+ */

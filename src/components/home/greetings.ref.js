@@ -1,12 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef } from 'react';
 
 export function GreetingsRef() {
-  const [state, setState] = useState("");
+  const [state, setState] = useState('');
   const refName = useRef();
 
   const handleDelete = () => {
-    setState("");
-    refName.current.value = "";
+    setState('');
+    refName.current.value = '';
   };
 
   const handleChange = () => {
@@ -24,7 +24,7 @@ export function GreetingsRef() {
       <button type="button" onClick={handleDelete}>
         Borrar
       </button>
-      <p>Hola {state ? state : "amigo"}</p>
+      <p>Hola {state || 'amigo'}</p>
     </div>
   );
   return template;

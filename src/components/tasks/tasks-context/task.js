@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { TasksContext } from "../../../contexts/TasksContextProvider";
+import { useContext } from 'react';
+import { TasksContext } from '../../../contexts/TasksContextProvider';
 
 export function Task({ item }) {
   const { toggleCompleteTask, deleteTask } = useContext(TasksContext);

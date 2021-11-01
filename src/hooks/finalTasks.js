@@ -1,6 +1,9 @@
-// Ejemplo de Custom Hook
+import { useContext, useCallback } from 'react';
+import * as store from '../services/store.http';
+import * as actions from '../components/tasks/reducers/actioncreators';
+import { Context } from '../contexts/ContextProvider';
 
-import { useReducer } from "react";
+// Ejemplo de Custom Hook
 
 /* export class CuseFinalTasks {
   get() {}
@@ -15,17 +18,42 @@ const helpers = new CuseFinalTasks()
 helpers.get() */
 
 export function useFinalTasks() {
-  useReducer();
+  const { tasks, dispatch } = useContext(Context);
 
-  function get() {}
-  function add() {}
-  function update() {}
-  function remove() {}
+  const pendingTasks = () => tasks.filter((item) => !item.isCompleted).length;
+
+  const loadTasks = useCallback(() => {
+    store.getTasks().then((response) => {
+      dispatch(actions.loadTasks(response));
+    });
+  }, [dispatch]);
+
+  const addTask = (task) => {
+    store.setTask(task).then((resp) => {
+      dispatch(actions.addTask(resp));
+    });
+  };
+
+  const toggleCompleteTask = (task) => {
+    store.updateTask(task).then((resp) => {
+      dispatch(actions.toggleTask(resp.id));
+    });
+  };
+
+  const deleteTask = (task) => {
+    store.removeTask(task.id).then((resp) => {
+      if (resp.ok) {
+        dispatch(actions.deleteTasks(task.id));
+      }
+    });
+  };
 
   return {
-    get,
-    add,
-    update,
-    remove,
+    tasks,
+    pendingTasks,
+    loadTasks,
+    addTask,
+    toggleCompleteTask,
+    deleteTask,
   };
 }

@@ -1,8 +1,10 @@
-import { createContext, useReducer, useEffect, useRef } from "react";
-import { TASKS } from "../models/task.data";
-import { tasksReducer } from "../components/tasks/reducers/taskreducer";
-import * as actions from "../components/tasks/reducers/actioncreators";
-import * as store from "../services/store";
+/* eslint-disable no-param-reassign */
+import { createContext, useReducer, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { TASKS } from '../models/task.data';
+import { tasksReducer } from '../components/tasks/reducers/taskreducer';
+import * as actions from '../components/tasks/reducers/actioncreators';
+import * as store from '../services/store';
 
 export const ReduxContext = createContext({
   tasks: [],
@@ -26,12 +28,12 @@ export function ReduxContextProvider({ children }) {
 
   const pendingTasks = () => tasks.filter((item) => !item.isCompleted).length;
 
-  const pending = useRef(tasks.filter((item) => !item.isCompleted).length);
+  /* const pending = useRef(tasks.filter((item) => !item.isCompleted).length);
 
   useEffect(() => {
     pending.current = tasks.filter((item) => !item.isCompleted).length;
-    console.log("Calculando pending:", pending);
-  }, [tasks]);
+    console.log('Calculando pending:', pending);
+  }, [tasks]); */
 
   const addTask = (task) => {
     // Mock de generación de ids
@@ -68,7 +70,7 @@ export function ReduxContextProvider({ children }) {
   const context = {
     tasks,
     pendingTasks,
-    pending: pending.current,
+    // pending: pending.current,
     addTask,
     toggleCompleteTask,
     deleteTask,
@@ -77,3 +79,10 @@ export function ReduxContextProvider({ children }) {
     <ReduxContext.Provider value={context}>{children}</ReduxContext.Provider>
   );
 }
+
+ReduxContextProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};

@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { ReduxContext } from "../../../contexts/ReduxContextProvider";
-import { Card } from "../../core/card";
-import { Add } from "./add";
-import { Task } from "./task";
+import { useContext } from 'react';
+import { ReduxContext } from '../../../contexts/ReduxContextProvider';
+import { Card } from '../../core/card';
+import { Add } from './add';
+import { Task } from './task';
 
 export function List() {
   const { tasks } = useContext(ReduxContext);

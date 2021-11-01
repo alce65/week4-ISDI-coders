@@ -1,10 +1,10 @@
-import { Link, Route, Switch } from "react-router-dom";
-import { List } from "./tasks-state/list";
-import { List as List2 } from "./tasks-context/list";
-import { List as List3 } from "./tasks-redux-native/list";
-import { List as List4 } from "./tasks-redux-native-final/list";
+import { Link, Route, Switch } from 'react-router-dom';
+import { List } from './tasks-state/list';
+import { List as List2 } from './tasks-context/list';
+import { List as List3 } from './tasks-redux-native/list';
+import { List as List4 } from './tasks-redux-native-final/list';
 
-import "./tareas.css";
+import './tareas.css';
 
 export function TaskPage() {
   const template = (

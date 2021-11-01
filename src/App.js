@@ -1,10 +1,10 @@
-import { Route, Switch } from "react-router-dom";
-import { HomePage } from "./components/home/home.page";
-import { Layout } from "./components/core/layout";
-import AboutPage from "./components/about/about.page";
-import { GentlemenPage } from "./components/gent/Gentlemen.Page";
-import { TaskPage } from "./components/tasks/task.page";
-import "./App.css";
+import { Route, Switch } from 'react-router-dom';
+import { HomePage } from './components/home/home.page';
+import { Layout } from './components/core/layout';
+import AboutPage from './components/about/about.page';
+import { GentlemenPage } from './components/gent/Gentlemen.Page';
+import { TaskPage } from './components/tasks/task.page';
+import './App.css';
 
 function App() {
   return (

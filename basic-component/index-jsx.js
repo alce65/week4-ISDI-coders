@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* global  ReactDOM */
+
 function Avatar(props) {
   const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`;
   const alt = `Avatar de ${props.name}`;
@@ -14,7 +17,8 @@ function Avatar(props) {
     h("img", { src: src, alt: alt }),
   ]); */
 }
-const appx = document.querySelector("#avatars-jsx");
+
+const appx = document.querySelector('#avatars-jsx');
 ReactDOM.render(
   <div>
     <Avatar id={21} name="Luisa" />

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createContext, useReducer, useEffect, useRef } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TASKS } from '../models/task.data';
 import { tasksReducer } from '../components/tasks/reducers/taskreducer';

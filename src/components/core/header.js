@@ -30,7 +30,7 @@ export function Header() {
         <img className="header__logo-image" src={pathLogo} alt={altLogo} />
       </div>
       <div className="header__main">
-        <h1 className="header__title">Tareas Dashboard</h1>
+        <h1 className="header__title">Tareas Dashboard v.2.0</h1>
         <span>
           {pendingTasks()} - {pendingTasks2()} - {pendingTasks3()}
         </span>
